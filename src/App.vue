@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import timeView from './components/HelloWorld'
+import timeView from './components/TimeView'
 
 export default {
   name: 'App',
