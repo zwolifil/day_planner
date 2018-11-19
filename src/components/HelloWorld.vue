@@ -1,23 +1,30 @@
 <template id="time-view">
   <div class="time-wrapper">
-    {{time}}
+    {{time | timeFormat}}
   </div>
 </template>
 
 <script>
-import {observable} from '../time'
-
 export default {
   data: () => ({
     time: 0
   }),
+  created () {
+    this.setTime()
+  },
   methods: {
-    setTime: () => {
-      observable.subscribe(time => this.time = time)
+    setTime: function () {
+      setInterval(() => {
+        this.time = new Date().getTime()
+      }, 1000)
     }
-  }
-}.methods.setTime()
+  },
+  template: 'time-view'
+}
 </script>
 <style scoped>
-
+.time-wrapper {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 60px;
+}
 </style>

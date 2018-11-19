@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <time-view/>
     <router-view/>
   </div>
 </template>
 
 <script>
+import timeView from './components/HelloWorld'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    'time-view': timeView
+  }
 }
 </script>
 
@@ -18,6 +23,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 </style>
