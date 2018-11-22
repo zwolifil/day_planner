@@ -10,6 +10,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import 'vue-good-table/dist/vue-good-table.css'
+import { store } from './store'
 
 library.add(faPlus)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
@@ -28,6 +29,7 @@ Vue.filter('timeFormat', (time) => {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

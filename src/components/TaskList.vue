@@ -8,12 +8,13 @@
 
 <script>
 import { VueGoodTable } from 'vue-good-table'
+import { store } from '../store'
 export default {
   name: 'TaskList',
   components: {
     VueGoodTable
   },
-  data () {
+  data: function () {
     return {
       columns: [
         {
@@ -30,15 +31,13 @@ export default {
           label: 'From To',
           field: 'time',
           type: 'string'
+        },
+        {
+          label: 'Message',
+          field: 'message'
         }
       ],
-      rows: [
-        {
-          about: 'Work',
-          created: '20.10.2018',
-          time: '12:00-16:00'
-        }
-      ]
+      rows: store.state.taskList
     }
   }
 }

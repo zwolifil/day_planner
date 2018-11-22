@@ -7,6 +7,9 @@
       <time-view/>
     </div>
     <task-list/>
+    <modal name="add" >
+      <add-task/>
+    </modal>
   </div>
 </template>
 
@@ -18,12 +21,16 @@ import AddTask from './components/AddTask'
 export default {
   name: 'App',
   components: {
+    AddTask,
     'time-view': timeView,
     'task-list': TaskList
   },
   methods: {
     openModal: function () {
-      this.$modal.show(AddTask)
+      this.$modal.show('add')
+    },
+    closeModal: function () {
+      this.$modal.hide('add')
     }
   }
 }
