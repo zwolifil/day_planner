@@ -8,7 +8,7 @@
     </div>
     <task-list/>
     <modal name="add" >
-      <add-task/>
+      <add-task @close="closeModal()" />
     </modal>
   </div>
 </template>

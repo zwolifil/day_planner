@@ -10,13 +10,14 @@ export const store = new Vuex.Store({
   mutations: {
     addTask (state, task) {
       state.taskList.push(task)
-      console.log('asdas')
     },
     removeTask (state, id) {
       state.taskList.splice(id, 1)
     },
-    updateMessageInTask (state, id, message) {
+    updateMessageInTask (state, {id, message}) {
       state.taskList[id].message = message
+      const tmp = JSON.parse(JSON.stringify(state.taskList[id]))
+      state.taskList.splice(id, 1, tmp)
     }
   }
 })

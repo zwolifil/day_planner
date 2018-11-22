@@ -2,7 +2,9 @@
     <div>
       <vue-good-table
         :columns="columns"
-        :rows="rows"/>
+        :rows="rows"
+        @on-row-click="onRowClick"
+        ref="table"/>
     </div>
 </template>
 
@@ -29,7 +31,7 @@ export default {
         },
         {
           label: 'From To',
-          field: 'time',
+          field: 'taskTime',
           type: 'string'
         },
         {
@@ -38,6 +40,11 @@ export default {
         }
       ],
       rows: store.state.taskList
+    }
+  },
+  methods: {
+    onRowClick: function (params) {
+      store.commit('updateMessageInTask', {id: params.row.originalIndex, message: 'Message to happen : 18:00', timeOfMessage: 1542897400000})
     }
   }
 }
